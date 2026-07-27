@@ -12,4 +12,7 @@ jobs:
           node-version: '20'
       - run: npm ci
       - run: npm run generate:openapi
+        env:
+          DB_URL: "mock://localhost"
+          REDIS_URL: "redis://localhost"
       - run: git diff --exit-code docs/openapi.yaml || (echo "OpenAPI spec is out of sync. Run 'npm run generate:openapi' locally and commit." && exit 1)
