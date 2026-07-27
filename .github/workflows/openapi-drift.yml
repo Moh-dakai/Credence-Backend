@@ -15,4 +15,5 @@ jobs:
         env:
           DB_URL: "mock://localhost"
           REDIS_URL: "redis://localhost"
+          JWT_SECRET: "openapi-generation-stub-secret-32chars"
       - run: git diff --exit-code docs/openapi.yaml || (echo "OpenAPI spec is out of sync. Run 'npm run generate:openapi' locally and commit." && exit 1)
